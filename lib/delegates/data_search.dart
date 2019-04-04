@@ -13,7 +13,7 @@ class DataSearch extends SearchDelegate<String> {
     final ThemeData theme = Theme.of(context);
     assert(theme != null);
     return theme.copyWith(
-      primaryColor: Colors.white,
+      primaryColor: Colors.yellow,
       primaryIconTheme: theme.primaryIconTheme.copyWith(color: Colors.blueAccent),
       primaryColorBrightness: Brightness.light,
       primaryTextTheme: theme.textTheme,
@@ -39,7 +39,8 @@ class DataSearch extends SearchDelegate<String> {
     return IconButton(
       icon: AnimatedIcon(
           icon: AnimatedIcons.menu_arrow,
-          progress: transitionAnimation
+          progress: transitionAnimation,
+        color: Colors.white,
       ),
       onPressed: (){
         close(context, null);

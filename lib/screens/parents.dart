@@ -23,23 +23,27 @@ class Parents extends StatelessWidget {
 
     return Scaffold(
        appBar: AppBar(
-
-           title:  Image.asset("images/kideoos.png", width: 100,),
+           centerTitle: true,
+           title:  Image.asset("images/kideoos.png", height: 200,),
 
             backgroundColor: Colors.yellow
        ),
 
-        body: Padding(
-                padding: const EdgeInsets.only(top: 5.0),
-                child: new StaggeredGridView.count(
-                  crossAxisCount: 4,
-                  mainAxisSpacing: 1.0,
-                  crossAxisSpacing: 1.0,
-                  padding: const EdgeInsets.all(1.0),
-                  staggeredTiles: _staggeredTilesVideos(),
-                  children: _tilesVideos(context),
+        body:
 
-                ))
+
+                   Padding(
+                       padding: const EdgeInsets.only(top: 5.0),
+                       child: new StaggeredGridView.count(
+                         crossAxisCount: 4,
+                         mainAxisSpacing: 1.0,
+                         crossAxisSpacing: 1.0,
+                         padding: const EdgeInsets.all(1.0),
+                         staggeredTiles: _staggeredTilesVideos(),
+                         children: _tilesVideos(context),
+
+                       ))
+
 
     );
   }
@@ -150,7 +154,7 @@ class Parents extends StatelessWidget {
 
         child: Card(
             elevation: 0.0,
-            color: Colors.green,
+            color: Colors.lightBlue,
             child: Container(
                 padding: EdgeInsets.all(10.0),
                 child: Column(
@@ -159,11 +163,37 @@ class Parents extends StatelessWidget {
                   children: <Widget>[
                     IconButton(
                       icon: Icon(
-                        Icons.video_library, color: Colors.white,
+                        Icons.video_library, color: Colors.white, size: 40,
                       ),
 
                     ),
-                    Text("Novos Vídeos", style: TextStyle(color: Colors.white,),)
+                    Text("My Videos", style: TextStyle(color: Colors.white, fontSize: 30),),
+
+
+                     Container(
+
+                                child:
+                                StreamBuilder<Map<String, Video>>(
+                                    stream: BlocProvider.of<
+                                        FavoriteBloc>(context)
+                                        .outFav,
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasData)
+                                        return
+                                          Text("${snapshot.data.length}",
+                                          style: TextStyle(color: Colors.yellow),
+                                        );
+                                      else
+                                        return Container();
+                                    }),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 3.0),
+                                child: Text("Favorites", style: TextStyle(color: Colors.yellow),),
+                              )
+
+
+
                   ],
                 ))),
         onTap: (){
@@ -197,7 +227,7 @@ class Parents extends StatelessWidget {
 
 
                    ),
-                   Text("Fechar", style: TextStyle(color: Colors.white),)
+                   Text("Close", style: TextStyle(color: Colors.white),)
                  ],
                ))),
        onTap: (){
@@ -227,7 +257,7 @@ class Parents extends StatelessWidget {
 
 
                     ),
-                    Text("Ajuda", style: TextStyle(color: Colors.white),)
+                    Text("Help", style: TextStyle(color: Colors.white),)
                   ],
                 ))),
         onTap: (){
@@ -256,7 +286,7 @@ class Parents extends StatelessWidget {
                   children: <Widget>[
                       Icon(Icons.home, color: Colors.white,
                     ),
-                    Text("Voltar", style: TextStyle(color: Colors.white),)
+                    Text("Home", style: TextStyle(color: Colors.white),)
                   ],
                 ))),
              onTap: (){

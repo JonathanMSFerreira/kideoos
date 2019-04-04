@@ -12,8 +12,7 @@ class ResultSearch extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final bloc = BlocProvider.of<VideosBloc>(context);
-
-
+    
     final selectedVideos = SelectedVideos();
 
    Future<Null> _searchVideos() async{
@@ -28,6 +27,9 @@ class ResultSearch extends StatelessWidget {
       appBar: AppBar(
 
         elevation: 3.0,
+
+        centerTitle: true,
+        title:  Image.asset("images/kideoos.png", height: 200,),
 
         backgroundColor: Colors.yellow,
         actions: <Widget>[
@@ -63,16 +65,8 @@ class ResultSearch extends StatelessWidget {
                   }
 
                   else {
-                    return Center(
+                    return  selectedVideos.build(context);
 
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-
-                          selectedVideos.build(context)
-
-                        ],
-                      ));
                   }
                 },
                 itemCount: snapshot.data.length + 1,

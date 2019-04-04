@@ -13,7 +13,7 @@ class Help extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.yellow,
       ),
 
       body: Container(

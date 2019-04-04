@@ -45,32 +45,74 @@ class SpriteButtonState extends State<SpriteButton>
 
       body: Stack(
 
-        children: <Widget>[
+         children: <Widget>[
 
           backgroundKideoos.setBackKideoos(),
 
 
           Center(
 
-            child:  new CustomPaint(
-              painter: new SpritePainter(_controller),
-              child: new SizedBox(
-                  width: 300.0,
-                  height: 300.0,
-                  child:
 
-                  GestureDetector(
-                    child: Image.asset(
-                      "images/kideoos.png",
-                      height: 60.0,
+            child: Column(
+
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+
+                Text("Kideoos", style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.blue[700]),),
+                SizedBox(
+
+                  height: 30,
+
+
+                ),
+
+                CustomPaint(
+                  painter: new SpritePainter(_controller),
+                  child: new SizedBox(
+                    width: 150.0,
+                    height: 150.0,
+                    child:
+
+                    GestureDetector(
+                      child: Image.asset(
+                        "images/oo.png",
+                        height: 20.0,
+
+                      ),
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushReplacement(MaterialPageRoute(builder: (context) => Parents()));
+                      },
                     ),
-                    onTap: () {
-                      Navigator.of(context)
-                          .pushReplacement(MaterialPageRoute(builder: (context) => Parents()));
-                    },
                   ),
-              ),
-            ),
+                ),
+
+                SizedBox(
+
+                  height: 30,
+
+
+                ),
+
+                Container(
+                  
+                  child: Text("Video player for kids",style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),),
+                  
+                  
+                )
+
+
+
+
+              ],
+
+
+
+            )
+
+
+
+
           ) ,
         ],
       )
