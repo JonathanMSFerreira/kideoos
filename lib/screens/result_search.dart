@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:kideoos/blocs/videos_bloc.dart';
 import 'package:kideoos/delegates/data_search.dart';
 import 'package:kideoos/screens/selected_videos.dart';
-import 'package:kideoos/utils/background_kideoos.dart';
 import 'package:kideoos/widgets/videotile.dart';
 
 class ResultSearch extends StatelessWidget {
@@ -12,7 +11,7 @@ class ResultSearch extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final bloc = BlocProvider.of<VideosBloc>(context);
-    
+
     final selectedVideos = SelectedVideos();
 
    Future<Null> _searchVideos() async{
@@ -31,11 +30,11 @@ class ResultSearch extends StatelessWidget {
         centerTitle: true,
         title:  Image.asset("images/kideoos.png", height: 200,),
 
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.indigo,
         actions: <Widget>[
 
           IconButton(
-            icon: Icon(Icons.search, color: Colors.lightBlue[500],),
+            icon: Icon(Icons.search, color: Colors.white,),
             onPressed: () {
 
               _searchVideos();

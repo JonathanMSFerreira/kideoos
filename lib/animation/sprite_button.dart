@@ -58,10 +58,20 @@ class SpriteButtonState extends State<SpriteButton>
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
 
-                Text("Kideoos", style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.blue[700]),),
+             //   Text("Kideoos", style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.blue[700]),),
+                Image.asset(
+                  "images/kideoos.png",
+                  height: 80.0,
+
+                ),
+
+
+                  Text("Video player for kids",style: TextStyle(fontSize: 20, color: Colors.indigo, fontWeight: FontWeight.bold),),
+
+
                 SizedBox(
 
-                  height: 30,
+                  height: 100,
 
 
                 ),
@@ -87,19 +97,8 @@ class SpriteButtonState extends State<SpriteButton>
                   ),
                 ),
 
-                SizedBox(
-
-                  height: 30,
 
 
-                ),
-
-                Container(
-                  
-                  child: Text("Video player for kids",style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),),
-                  
-                  
-                )
 
 
 

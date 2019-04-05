@@ -7,9 +7,9 @@ import 'package:kideoos/models/video.dart';
 import 'package:kideoos/screens/help.dart';
 import 'package:kideoos/screens/kideoos.dart';
 import 'package:kideoos/screens/result_search.dart';
-import 'package:kideoos/screens/selected_videos.dart';
-import 'package:kideoos/utils/background_kideoos.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:kideoos/utils/background_kideoos.dart';
 
 class Parents extends StatelessWidget {
 
@@ -19,30 +19,89 @@ class Parents extends StatelessWidget {
 
     final bloc = BlocProvider.of<VideosBloc>(context);
 
-
+    final backgroundKideoos  =  BackgroundKideoos();
 
     return Scaffold(
-       appBar: AppBar(
-           centerTitle: true,
-           title:  Image.asset("images/kideoos.png", height: 200,),
+//       appBar: AppBar(
+//           centerTitle: true,
+//           title:  Image.asset("images/kideoos.png", height: 200,),
+//
+//            backgroundColor: Colors.yellow
+//       ),
 
-            backgroundColor: Colors.yellow
-       ),
+        body: SafeArea(child:
 
-        body:
+        Stack(
 
 
-                   Padding(
-                       padding: const EdgeInsets.only(top: 5.0),
-                       child: new StaggeredGridView.count(
-                         crossAxisCount: 4,
-                         mainAxisSpacing: 1.0,
-                         crossAxisSpacing: 1.0,
-                         padding: const EdgeInsets.all(1.0),
-                         staggeredTiles: _staggeredTilesVideos(),
-                         children: _tilesVideos(context),
 
-                       ))
+          children: <Widget>[
+
+            backgroundKideoos.setBackKideoos(),
+
+
+            Container(
+              child:
+              ClipPath(
+                clipper: WaveClipperOne(),
+
+                child: Container(
+                  height: 90,
+                  color: Colors.indigo,
+                  child: Align(
+                      alignment: Alignment.topLeft,
+
+                       child:
+
+
+                      //   Text("Kideoos", style: TextStyle(fontSize: 60.0, color: Colors.white, fontWeight: FontWeight.bold,),),
+
+                          Image.asset("images/kideoos.png", height: 70,),
+                      ),
+                ),
+              ),
+
+
+            ),
+
+
+
+            Padding(
+                padding: const EdgeInsets.only(top: 100.0),
+                child: new StaggeredGridView.count(
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 1.0,
+                  crossAxisSpacing: 1.0,
+                  padding: const EdgeInsets.all(1.0),
+                  staggeredTiles: _staggeredTilesVideos(),
+                  children: _tilesVideos(context),
+
+                ))
+
+
+
+          ],
+
+
+
+
+        )
+
+
+
+
+
+
+
+        )
+
+
+
+
+
+
+
+
 
 
     );
@@ -58,9 +117,9 @@ class Parents extends StatelessWidget {
 
       const StaggeredTile.count(4, 3),
       const StaggeredTile.count(3, 2),
+    //  const StaggeredTile.count(1, 1),
       const StaggeredTile.count(1, 1),
       const StaggeredTile.count(1, 1),
-      const StaggeredTile.count(4, 1),
 
 
    ];
@@ -73,77 +132,17 @@ class Parents extends StatelessWidget {
   return  <Widget>[
 
        _cardBuscaVideos(context),
-   //    _cardFavoritos(context),
+
        _cardHome(context),
-       _cardFechar(context),
-       _cardAjuda(context)
+       _cardAjuda(context),
+       _cardFechar(context)
+
 
 
    ];
 
   }
 
-//  _cardFavoritos(context){
-//
-//    return
-//
-//      GestureDetector(
-//        child:
-//        Card(
-//            elevation: 0.0,
-//            color: Colors.blue,
-//            child: Container(
-//
-//                padding: EdgeInsets.all(10.0),
-//                child: Column(
-//                  mainAxisAlignment: MainAxisAlignment.center,
-//
-//                  children: <Widget>[
-//                    Column(
-//                        children: <Widget>[
-//                          IconButton(
-//                            icon: Icon(
-//                              Icons.star,
-//                              color: Colors.yellow,
-//                            ),
-//                          ),
-//                          Row(
-//                            mainAxisAlignment: MainAxisAlignment.center,
-//                            children: <Widget>[
-//                              Container(
-//                                child:
-//                                StreamBuilder<Map<String, Video>>(
-//                                    stream: BlocProvider.of<
-//                                        FavoriteBloc>(context)
-//                                        .outFav,
-//                                    builder: (context, snapshot) {
-//                                      if (snapshot.hasData)
-//                                        return
-//                                          Text("${snapshot.data.length}",
-//                                          style: TextStyle(color: Colors.white),
-//                                        );
-//                                      else
-//                                        return Container();
-//                                    }),
-//                              ),
-//                              Padding(
-//                                padding: EdgeInsets.only(left: 3.0),
-//                                child: Text("Favoritos", style: TextStyle(color: Colors.white),),
-//                              )
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//
-//
-//                  ],
-//                ))),
-//        onTap: () {
-//          Navigator.of(context).push(MaterialPageRoute(
-//              builder: (context) => SelectedVideos()));
-//        },);
-//
-//  }
 
 
   _cardBuscaVideos(context){
@@ -278,7 +277,7 @@ class Parents extends StatelessWidget {
 
         child:    Card(
             elevation: 0.0,
-            color: Colors.orange,
+            color: Colors.green,
             child: Container(
                 padding: EdgeInsets.all(10.0),
                 child: Column(

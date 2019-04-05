@@ -13,14 +13,15 @@ class DataSearch extends SearchDelegate<String> {
     final ThemeData theme = Theme.of(context);
     assert(theme != null);
     return theme.copyWith(
-      primaryColor: Colors.yellow,
-      primaryIconTheme: theme.primaryIconTheme.copyWith(color: Colors.blueAccent),
+      primaryColor: Colors.indigo,
+      primaryIconTheme: theme.primaryIconTheme.copyWith(color: Colors.white),
       primaryColorBrightness: Brightness.light,
-      primaryTextTheme: theme.textTheme,
-    );
+      primaryTextTheme: theme.textTheme,textTheme: theme.textTheme.copyWith(
+        title: theme.textTheme.title
+            .copyWith(color: Colors.white)),
+      dialogBackgroundColor: Colors.white
+     );
   }
-
-
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -73,7 +74,7 @@ class DataSearch extends SearchDelegate<String> {
               itemBuilder: (context, index){
                 return ListTile(
                   title: Text(snapshot.data[index]),
-                  leading: Icon(Icons.play_circle_filled, color: Colors.blue,),
+                  leading: Icon(Icons.play_circle_filled, color: Colors.red[600],),
                   onTap: (){
                     close(context, snapshot.data[index]);
                   },
