@@ -22,12 +22,6 @@ class Parents extends StatelessWidget {
     final backgroundKideoos  =  BackgroundKideoos();
 
     return Scaffold(
-//       appBar: AppBar(
-//           centerTitle: true,
-//           title:  Image.asset("images/kideoos.png", height: 200,),
-//
-//            backgroundColor: Colors.yellow
-//       ),
 
         body: SafeArea(child:
 
@@ -51,20 +45,13 @@ class Parents extends StatelessWidget {
                   child: Align(
                       alignment: Alignment.topLeft,
 
-                       child:
-
-
-                      //   Text("Kideoos", style: TextStyle(fontSize: 60.0, color: Colors.white, fontWeight: FontWeight.bold,),),
-
-                          Image.asset("images/kideoos.png", height: 70,),
+                       child: Image.asset("images/kideoos.png", height: 70,),
                       ),
                 ),
               ),
 
 
             ),
-
-
 
             Padding(
                 padding: const EdgeInsets.only(top: 100.0),
@@ -78,33 +65,7 @@ class Parents extends StatelessWidget {
 
                 ))
 
-
-
-          ],
-
-
-
-
-        )
-
-
-
-
-
-
-
-        )
-
-
-
-
-
-
-
-
-
-
-    );
+          ],)));
   }
 
 
@@ -117,7 +78,6 @@ class Parents extends StatelessWidget {
 
       const StaggeredTile.count(4, 3),
       const StaggeredTile.count(3, 2),
-    //  const StaggeredTile.count(1, 1),
       const StaggeredTile.count(1, 1),
       const StaggeredTile.count(1, 1),
 

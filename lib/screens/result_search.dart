@@ -25,8 +25,7 @@ class ResultSearch extends StatelessWidget {
 
       appBar: AppBar(
 
-        elevation: 3.0,
-
+        elevation: 1.0,
         centerTitle: true,
         title:  Image.asset("images/kideoos.png", height: 200,),
 
@@ -71,7 +70,7 @@ class ResultSearch extends StatelessWidget {
                 itemCount: snapshot.data.length + 1,
               );
             else
-              return Container();
+              return  selectedVideos.build(context);
           }
       ),
 
