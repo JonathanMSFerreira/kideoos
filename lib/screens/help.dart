@@ -1,12 +1,9 @@
-import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_youtube/flutter_youtube.dart';
-import 'package:kideoos/blocs/favorite_bloc.dart';
-import 'package:kideoos/models/video.dart';
-import 'package:kideoos/api.dart';
+import 'package:kideoos/utils/background_kideoos.dart';
 
 class Help extends StatelessWidget {
 
+  final backgroundKideoos  =  BackgroundKideoos();
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +18,60 @@ class Help extends StatelessWidget {
 
       ),
 
-      body: Container(
+      body: Stack(
+        children: <Widget>[
+          backgroundKideoos.setBackKideoos(),
+
+
+          Card(
+            margin: const EdgeInsets.only(top: 25.0, left: 5.0, right: 5.0),
+            child: SizedBox(
+                height: 100.0,
+            //    width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 45.0,),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Como adicionar vídeos?",
+                        style: Theme.of(context).textTheme.subhead,
+                      ),
+
+                      Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
 
 
 
+                                Icon(Icons.video_library),
+
+                                Text("->")
 
 
+                              ],
 
 
+                            )
 
+                    ],
+                  ),
+                )),
+          ),
+          Positioned(
+            top: 2.0,
+            left: .0,
+            right: .0,
+            child: Center(
+              child: CircleAvatar(
+
+                backgroundColor: Colors.blue,
+                radius: 30.0,
+                child: Icon(Icons.video_library),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

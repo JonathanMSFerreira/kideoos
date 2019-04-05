@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kideoos/blocs/videos_bloc.dart';
 import 'package:kideoos/delegates/data_search.dart';
 import 'package:kideoos/screens/selected_videos.dart';
+import 'package:kideoos/utils/background_kideoos.dart';
 import 'package:kideoos/widgets/videotile.dart';
 
 class ResultSearch extends StatelessWidget {
@@ -11,6 +12,8 @@ class ResultSearch extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final bloc = BlocProvider.of<VideosBloc>(context);
+
+
 
     final selectedVideos = SelectedVideos();
 
@@ -26,6 +29,7 @@ class ResultSearch extends StatelessWidget {
       appBar: AppBar(
 
         elevation: 1.0,
+
         centerTitle: true,
         title:  Image.asset("images/kideoos.png", height: 200,),
 
@@ -70,7 +74,7 @@ class ResultSearch extends StatelessWidget {
                 itemCount: snapshot.data.length + 1,
               );
             else
-              return  selectedVideos.build(context);
+              return Container();
           }
       ),
 

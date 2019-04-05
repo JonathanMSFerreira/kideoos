@@ -25,14 +25,9 @@ class Parents extends StatelessWidget {
 
         body: SafeArea(child:
 
-        Stack(
-
-
-
-          children: <Widget>[
+        Stack(children: <Widget>[
 
             backgroundKideoos.setBackKideoos(),
-
 
             Container(
               child:
@@ -69,8 +64,6 @@ class Parents extends StatelessWidget {
   }
 
 
-
-
   List<StaggeredTile> _staggeredTilesVideos(){
 
 
@@ -97,13 +90,7 @@ class Parents extends StatelessWidget {
        _cardAjuda(context),
        _cardFechar(context)
 
-
-
-   ];
-
-  }
-
-
+   ];}
 
   _cardBuscaVideos(context){
 
@@ -113,7 +100,7 @@ class Parents extends StatelessWidget {
 
         child: Card(
             elevation: 0.0,
-            color: Colors.lightBlue,
+            color: Colors.blue,
             child: Container(
                 padding: EdgeInsets.all(10.0),
                 child: Column(
