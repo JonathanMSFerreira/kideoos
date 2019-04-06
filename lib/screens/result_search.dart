@@ -67,8 +67,9 @@ class ResultSearch extends StatelessWidget {
                   }
 
                   else {
-                    return  selectedVideos.build(context);
+                //    return  selectedVideos.build(context);
 
+                    return Container();
                   }
                 },
                 itemCount: snapshot.data.length + 1,

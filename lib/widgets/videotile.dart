@@ -28,12 +28,19 @@ class VideoTile extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            AspectRatio(
-              aspectRatio: 16.0/9.0,
-              child: Image.network(video.thumb, fit: BoxFit.cover,),
-            ),
+
+
             Row(
               children: <Widget>[
+
+                Container(
+
+                  padding: EdgeInsets.only(left: 3.0),
+                  height: 80,
+                  width: 100,
+                  child: Image.network(video.thumb, fit: BoxFit.cover,),
+                ),
+
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +51,7 @@ class VideoTile extends StatelessWidget {
                           video.title,
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: 16
+                              fontSize: 14
                           ),
                           maxLines: 2,
                         ),
@@ -55,7 +62,7 @@ class VideoTile extends StatelessWidget {
                           video.channel,
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: 14
+                              fontSize: 12
                           ),
                         ),
                       )
@@ -68,9 +75,9 @@ class VideoTile extends StatelessWidget {
                     if(snapshot.hasData)
                       return IconButton(
                         icon: Icon(snapshot.data.containsKey(video.id) ?
-                        Icons.star : Icons.star_border),
-                        color: Colors.yellow,
-                        iconSize: 30,
+                        Icons.check_circle_outline : Icons.add_circle),
+                        color: snapshot.data.containsKey(video.id) ?   Colors.green:  Colors.indigo,
+                        iconSize: 40,
                         onPressed: (){
                           bloc.toggleFavorite(video);
                         },
@@ -80,7 +87,12 @@ class VideoTile extends StatelessWidget {
                   },
                 )
               ],
-            )
+            ),
+
+            Divider(height: 2,)
+
+
+
           ],
         ),
       ),

@@ -28,68 +28,57 @@ class _KideoosState extends State<Kideoos> {
 
     final bloc = BlocProvider.of<FavoriteBloc>(context);
 
+    return SafeArea(
+
+        bottom: false,
+        child: Scaffold(
+
+          body:   StreamBuilder<Map<String, Video>>(
+              stream: BlocProvider.of<FavoriteBloc>(context).outFav,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  if (snapshot.data.isNotEmpty) {
+                    return Stack(
+
+                      children: <Widget>[
+
+                        _listVideos(context, bloc),
 
 
-    return Scaffold(
+                        Padding(
+                            padding: EdgeInsets.all(5),
+                            child: Align(
 
-      
-      body:  SafeArea(
-        child: StreamBuilder<Map<String, Video>>(
-          stream: BlocProvider.of<FavoriteBloc>(context).outFav,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              if (snapshot.data.isNotEmpty) {
-                return Stack(
+                                alignment: Alignment.topRight,
+                                child: GestureDetector(
+                                  child: Container(
+                                    height: 50,
+                                    child: Image.asset("images/oo.png",),
 
-                  children: <Widget>[
+                                  ),
+                                  onLongPress: () {
+                                    Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(builder: (context) => Parents()));
+                                  },
+                                )))],);
 
-                    _listVideos(context, bloc),
+                  } else {
+                    return Scaffold(body: _initialPage());
+                  }
+                } else
+                  return Container();
+              }),
 
-                   
-                   Padding(
-                     padding: EdgeInsets.all(5),
-                     child: Align(
 
-                         alignment: Alignment.topRight,
-                         child: GestureDetector(
-                           child: Container(
-                             height: 50,
-                             child: Image.asset("images/oo.png",),
+        )
 
-                           ),
-                           onLongPress: () {
-                             Navigator.of(context).pushReplacement(
-                                 MaterialPageRoute(builder: (context) => Parents()));
-                           },
-                         )))],);
 
-              } else {
-                return Scaffold(body: _initialPage());
-              }
-            } else
-              return Container();
-          }),
-      )
+      );
 
-    );
+
+
   }
 
-//  _appBar() {
-//    return AppBar(
-//
-//      title: GestureDetector(
-//        child: Container(
-//          height: 30,
-//          child: Image.asset("images/kideoos.png",),
-//        ),
-//        onLongPress: () {
-//          Navigator.of(context).pushReplacement(
-//              MaterialPageRoute(builder: (context) => Parents()));
-//        },
-//      ),
-//      backgroundColor: Colors.white,
-//    );
-//  }
 
 //  Carrega lista de vídeos favoritos
   _listVideos(context, bloc) {
@@ -112,7 +101,6 @@ class _KideoosState extends State<Kideoos> {
 
   _videoEmExibicao(bloc) {
     return Expanded(
-      //  padding: EdgeInsets.only(bottom: 1.0),
 
       flex: 1,
       child:  Container(
@@ -124,7 +112,7 @@ class _KideoosState extends State<Kideoos> {
                 context: context,
                 source: _idVideoSelecionado,
                 quality: YoutubeQuality.LOW,
-                aspectRatio: 11.0 / 8.0,
+                aspectRatio: 11.0 / 8.7,
            //     keepScreenOn: true,
                 autoPlay: true,
                 onVideoEnded: (){

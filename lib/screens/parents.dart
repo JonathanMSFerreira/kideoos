@@ -23,18 +23,20 @@ class Parents extends StatelessWidget {
 
     return Scaffold(
 
-        body: SafeArea(child:
+        body: SafeArea(
 
-        Stack(children: <Widget>[
+          bottom: false,
+
+            child: Stack(children: <Widget>[
 
             backgroundKideoos.setBackKideoos(),
 
-            Container(
-              child:
+
               ClipPath(
                 clipper: WaveClipperOne(),
 
                 child: Container(
+
                   height: 90,
                   color: Colors.indigo,
                   child: Align(
@@ -46,7 +48,7 @@ class Parents extends StatelessWidget {
               ),
 
 
-            ),
+
 
             Padding(
                 padding: const EdgeInsets.only(top: 100.0),
@@ -70,8 +72,10 @@ class Parents extends StatelessWidget {
    return <StaggeredTile>[
 
       const StaggeredTile.count(4, 3),
+
       const StaggeredTile.count(3, 2),
       const StaggeredTile.count(1, 1),
+
       const StaggeredTile.count(1, 1),
 
 
@@ -99,10 +103,11 @@ class Parents extends StatelessWidget {
       GestureDetector(
 
         child: Card(
-            elevation: 0.0,
+            shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+            elevation: 3.0,
             color: Colors.blue,
             child: Container(
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(5.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
 
@@ -116,27 +121,43 @@ class Parents extends StatelessWidget {
                     Text("My Videos", style: TextStyle(color: Colors.white, fontSize: 30),),
 
 
-                     Container(
+                     Stack(
 
-                                child:
-                                StreamBuilder<Map<String, Video>>(
-                                    stream: BlocProvider.of<
-                                        FavoriteBloc>(context)
-                                        .outFav,
-                                    builder: (context, snapshot) {
-                                      if (snapshot.hasData)
-                                        return
-                                          Text("${snapshot.data.length}",
-                                          style: TextStyle(color: Colors.yellow),
-                                        );
-                                      else
-                                        return Container();
-                                    }),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 3.0),
-                                child: Text("Favorites", style: TextStyle(color: Colors.yellow),),
-                              )
+                       children: <Widget>[
+
+                         Center(
+                           child:Icon(Icons.star, size: 70, color: Colors.yellow,) ,
+
+
+                         )
+                          ,
+
+
+                         Container(
+
+                           alignment: Alignment.center,
+                           height: 70,
+                           child:
+                           StreamBuilder<Map<String, Video>>(
+                               stream: BlocProvider.of<
+                                   FavoriteBloc>(context)
+                                   .outFav,
+                               builder: (context, snapshot) {
+                                 if (snapshot.hasData)
+
+                                   return
+                                     Text(snapshot.data.length < 100 ? "${snapshot.data.length}" : "99+", style: TextStyle(color: Colors.black),);
+                                 else
+                                   return Container();
+                               }),
+                         ),],),
+
+
+
+//                              Padding(
+//                                padding: EdgeInsets.only(left: 3.0),
+//                                child: Text("Favorites", style: TextStyle(color: Colors.yellow),),
+//                              )
 
 
 
@@ -161,7 +182,8 @@ class Parents extends StatelessWidget {
        child:
 
        Card(
-           elevation: 0.0,
+           shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+           elevation: 3.0,
            color: Colors.redAccent,
            child: Container(
                padding: EdgeInsets.all(10.0),
@@ -191,7 +213,8 @@ class Parents extends StatelessWidget {
         child:
 
         Card(
-            elevation: 0.0,
+            shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+            elevation: 3.0,
             color: Colors.deepPurple,
             child: Container(
                 padding: EdgeInsets.all(10.0),
@@ -223,7 +246,8 @@ class Parents extends StatelessWidget {
       GestureDetector(
 
         child:    Card(
-            elevation: 0.0,
+            shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+            elevation: 3.0,
             color: Colors.green,
             child: Container(
                 padding: EdgeInsets.all(10.0),
