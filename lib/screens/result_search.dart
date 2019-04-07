@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:kideoos/blocs/videos_bloc.dart';
 import 'package:kideoos/delegates/data_search.dart';
 import 'package:kideoos/screens/selected_videos.dart';
-import 'package:kideoos/utils/background_kideoos.dart';
-import 'package:kideoos/widgets/videotile.dart';
 
 class ResultSearch extends StatelessWidget {
 
@@ -47,37 +45,46 @@ class ResultSearch extends StatelessWidget {
         ],
       ),
 
-      body: StreamBuilder(
-          stream: bloc.outVideos,
-          initialData: [],
-          builder: (context, snapshot){
-            if(snapshot.hasData)
-              return ListView.builder(
-                itemBuilder: (context, index){
-                  if(index < snapshot.data.length){
-                    return VideoTile(snapshot.data[index]);
-                  } else if (index > 1){
-                    bloc.inSearch.add(null);
-                    return Container(
-                      height: 40,
-                      width: 40,
-                      alignment: Alignment.center,
-                      child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.lightBlue[500]),),
-                    );
-                  }
+      body:
 
-                  else {
-                //    return  selectedVideos.build(context);
+//      _inSearch == false ?
+//
+//
+//      StreamBuilder(
+//          stream: bloc.outVideos,
+//          initialData: [],
+//          builder: (context, snapshot){
+//            if(snapshot.hasData)
+//              return ListView.builder(
+//                itemBuilder: (context, index){
+//                  if(index < snapshot.data.length){
+//                    return VideoTile(snapshot.data[index]);
+//                  } else if (index > 1){
+//                    bloc.inSearch.add(null);
+//                    return Container(
+//                      height: 40,
+//                      width: 40,
+//                      alignment: Alignment.center,
+//                      child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.lightBlue[500]),),
+//                    );
+//                  }
+//
+//                  else {
+//                //    return  selectedVideos.build(context);
+//
+//                    return Container();
+//                  }
+//                },
+//                itemCount: snapshot.data.length + 1,
+//              );
+//            else
+//              return Container();
+//          }
+//      ) :
 
-                    return Container();
-                  }
-                },
-                itemCount: snapshot.data.length + 1,
-              );
-            else
-              return Container();
-          }
-      ),
+
+
+      selectedVideos.build(context)
 
 
 
