@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:kideoos/blocs/favorite_bloc.dart';
 import 'package:kideoos/blocs/videos_bloc.dart';
 import 'package:kideoos/models/video.dart';
+import 'package:kideoos/screens/about.dart';
 import 'package:kideoos/screens/help.dart';
 import 'package:kideoos/screens/kideoos.dart';
 import 'package:kideoos/screens/result_search.dart';
@@ -33,11 +34,12 @@ class Parents extends StatelessWidget {
 
 
               ClipPath(
-                clipper: WaveClipperOne(),
+               // clipper: WaveClipperOne(),
 
+                clipper: WaveClipperTwo(),
                 child: Container(
 
-                  height: 90,
+                  height: 110,
                   color: Colors.indigo,
                   child: Align(
                       alignment: Alignment.topLeft,
@@ -51,9 +53,9 @@ class Parents extends StatelessWidget {
 
 
             Padding(
-                padding: const EdgeInsets.only(top: 100.0),
+                padding: const EdgeInsets.only(top: 90.0),
                 child: new StaggeredGridView.count(
-                  crossAxisCount: 4,
+                  crossAxisCount: 5,
                   mainAxisSpacing: 1.0,
                   crossAxisSpacing: 1.0,
                   padding: const EdgeInsets.all(1.0),
@@ -71,12 +73,15 @@ class Parents extends StatelessWidget {
 
    return <StaggeredTile>[
 
-      const StaggeredTile.count(4, 3),
 
+     const StaggeredTile.count(4, 3),
       const StaggeredTile.count(3, 2),
       const StaggeredTile.count(1, 1),
 
+
       const StaggeredTile.count(1, 1),
+
+      const StaggeredTile.count(4, 1),
 
 
    ];
@@ -88,15 +93,17 @@ class Parents extends StatelessWidget {
 
   return  <Widget>[
 
-       _cardBuscaVideos(context),
+    _cardMyVideos(context),
 
        _cardHome(context),
-       _cardAjuda(context),
-       _cardFechar(context)
+       _cardHelp(context),
+
+       _cardAbout(context),
+       _cardClose(context)
 
    ];}
 
-  _cardBuscaVideos(context){
+  _cardMyVideos(context){
 
     return
 
@@ -114,11 +121,11 @@ class Parents extends StatelessWidget {
                   children: <Widget>[
                     IconButton(
                       icon: Icon(
-                        Icons.video_library, color: Colors.white, size: 40,
+                        Icons.video_library, color: Colors.white, size: 30,
                       ),
 
                     ),
-                    Text("My Videos", style: TextStyle(color: Colors.white, fontSize: 30),),
+                    Text("My Videos", style: TextStyle(color: Colors.white, fontSize: 20),),
 
 
                      Stack(
@@ -154,13 +161,6 @@ class Parents extends StatelessWidget {
 
 
 
-//                              Padding(
-//                                padding: EdgeInsets.only(left: 3.0),
-//                                child: Text("Favorites", style: TextStyle(color: Colors.yellow),),
-//                              )
-
-
-
                   ],
                 ))),
         onTap: (){
@@ -174,7 +174,7 @@ class Parents extends StatelessWidget {
 
   }
 
-  _cardFechar(context){
+  _cardClose(context){
 
 
    return
@@ -205,7 +205,7 @@ class Parents extends StatelessWidget {
        },);
   }
 
-  _cardAjuda(context){
+  _cardHelp(context){
 
 
     return
@@ -273,5 +273,43 @@ class Parents extends StatelessWidget {
 
    ;
   }
+
+
+  _cardAbout(context){
+
+
+    return
+      GestureDetector(
+        child:
+
+        Card(
+            shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+            elevation: 3.0,
+            color: Colors.lightBlue[300],
+            child: Container(
+                padding: EdgeInsets.all(10.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      Icons.info_outline, color: Colors.white,
+
+
+                    ),
+                    Text("About", style: TextStyle(color: Colors.white),)
+                  ],
+                ))),
+        onTap: (){
+
+          Navigator.of(context).push(
+              MaterialPageRoute(
+                  builder: (context) => About()));
+
+        },);
+  }
+
+
+
+
 
 }
