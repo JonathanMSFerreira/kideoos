@@ -74,14 +74,15 @@ class Parents extends StatelessWidget {
    return <StaggeredTile>[
 
 
-     const StaggeredTile.count(4, 3),
+      const StaggeredTile.count(5, 3),
       const StaggeredTile.count(3, 2),
-      const StaggeredTile.count(1, 1),
 
 
-      const StaggeredTile.count(1, 1),
 
-      const StaggeredTile.count(4, 1),
+      const StaggeredTile.count(2, 1),
+
+      const StaggeredTile.count(2, 1),
+      const StaggeredTile.count(5, 1),
 
 
    ];
@@ -93,7 +94,7 @@ class Parents extends StatelessWidget {
 
   return  <Widget>[
 
-    _cardMyVideos(context),
+      _cardMyVideos(context),
 
        _cardHome(context),
        _cardHelp(context),
