@@ -24,29 +24,64 @@ class About extends StatelessWidget {
 
 
           Card(
-            margin: const EdgeInsets.only(top: 25.0, left: 5.0, right: 5.0),
-            child: SizedBox(
-                height: 500.0,
-                width: double.infinity,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 45.0,),
-                  child: Column(
+            margin: const EdgeInsets.only(top: 25.0, left: 5.0, right: 5.0, bottom: 5.0),
+
+
+           child: Padding(
+              padding: EdgeInsets.all(50),
+              child:
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.start,
+
+                children: <Widget>[
+
+                  
+
+                  Row(
+
+
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
+
+
+
+
+
                       Text(
-                        "Version: 1.0.0",
+                        "Versão:", style: TextStyle(fontWeight: FontWeight.bold),
 
                       ),
 
                       Text(
-                        "Latest update: 04/04/2019",
+                        "1.0.0",
 
                       ),
+
 
 
                     ],
-                  ),
-                )),
+
+
+
+
+
+
+                  )
+
+
+
+
+
+                ],
+              ),
+
+            ),
+
+
+
+
           ),
           Positioned(
             top: 2.0,
