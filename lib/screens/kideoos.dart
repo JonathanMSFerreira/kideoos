@@ -100,11 +100,11 @@ class _KideoosState extends State<Kideoos> {
 
 
   _videoEmExibicao(bloc) {
+
     return Expanded(
 
       flex: 1,
       child:  Container(
-
 
               color: Colors.black,
               child: YoutubePlayer(
@@ -116,6 +116,9 @@ class _KideoosState extends State<Kideoos> {
            //     keepScreenOn: true,
                 autoPlay: true,
                 onVideoEnded: (){
+
+
+                  print(_idVideoSelecionado);
 
                   _reproducaoAutomatica(bloc);
 
@@ -166,6 +169,7 @@ class _KideoosState extends State<Kideoos> {
 
     return Expanded(
 
+      flex: 1,
         child: StreamBuilder<Map<String, Video>>(
           stream: bloc.outFav,
           initialData: {},
@@ -174,15 +178,21 @@ class _KideoosState extends State<Kideoos> {
           return CustomScrollView(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
-
-
               slivers: <Widget>[
-            SliverList(
-            delegate: SliverChildListDelegate(
+
+                SliverList(
 
 
-               snapshot.data.values.map((v) {
-                return InkWell(
+                 delegate: SliverChildListDelegate(
+
+
+
+                  snapshot.data.values.map((v) {
+
+
+                 return InkWell(
+
+                     key: Key(DateTime.now().millisecondsSinceEpoch.toString()),
                     onTap: () {
                       //Atualiza player de vídeo
                         _getIdVideo(v.id);

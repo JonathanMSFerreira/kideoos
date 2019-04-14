@@ -49,11 +49,8 @@ class Parents extends StatelessWidget {
                 ),
               ),
 
-
-
-
             Padding(
-                padding: const EdgeInsets.only(top: 90.0),
+                padding: const EdgeInsets.only(top: 100.0),
                 child: new StaggeredGridView.count(
                   crossAxisCount: 5,
                   mainAxisSpacing: 1.0,
@@ -76,12 +73,8 @@ class Parents extends StatelessWidget {
 
       const StaggeredTile.count(5, 3),
       const StaggeredTile.count(3, 2),
-
-
-
-      const StaggeredTile.count(2, 1),
-
-      const StaggeredTile.count(2, 1),
+   //   const StaggeredTile.count(2, 1),
+      const StaggeredTile.count(2, 2),
       const StaggeredTile.count(5, 1),
 
 
@@ -97,7 +90,7 @@ class Parents extends StatelessWidget {
       _cardMyVideos(context),
 
        _cardHome(context),
-       _cardHelp(context),
+    //   _cardHelp(context),
 
        _cardAbout(context),
        _cardClose(context)
@@ -126,7 +119,7 @@ class Parents extends StatelessWidget {
                       ),
 
                     ),
-                    Text("My Videos", style: TextStyle(color: Colors.white, fontSize: 20),),
+                    Text("Meus Vídeos", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold,),),
 
 
                      Stack(
@@ -196,7 +189,7 @@ class Parents extends StatelessWidget {
 
 
                    ),
-                   Text("Close", style: TextStyle(color: Colors.white),)
+                   Text("Fechar", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12.0),)
                  ],
                ))),
        onTap: (){
@@ -227,7 +220,7 @@ class Parents extends StatelessWidget {
 
 
                     ),
-                    Text("Help", style: TextStyle(color: Colors.white),)
+                    Text("Ajuda", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,),)
                   ],
                 ))),
         onTap: (){
@@ -255,9 +248,9 @@ class Parents extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                      Icon(Icons.home, color: Colors.white,
+                      Icon(Icons.child_care, color: Colors.white,
                     ),
-                    Text("Home", style: TextStyle(color: Colors.white),)
+                    Text("Kids", style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold),)
                   ],
                 ))),
              onTap: (){
@@ -281,12 +274,10 @@ class Parents extends StatelessWidget {
 
     return
       GestureDetector(
-        child:
-
-        Card(
+        child: Card(
             shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
             elevation: 3.0,
-            color: Colors.lightBlue[300],
+            color: Colors.deepPurple,
             child: Container(
                 padding: EdgeInsets.all(10.0),
                 child: Column(
@@ -297,7 +288,7 @@ class Parents extends StatelessWidget {
 
 
                     ),
-                    Text("About", style: TextStyle(color: Colors.white),)
+                    Text("Sobre", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,),)
                   ],
                 ))),
         onTap: (){

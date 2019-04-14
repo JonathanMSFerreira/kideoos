@@ -51,4 +51,15 @@ class FavoriteBloc implements BlocBase {
   }
 
 
-}
+
+  bool isEmpty(){
+
+
+    return _favorites.isEmpty;
+
+    }
+
+
+  }
+
+

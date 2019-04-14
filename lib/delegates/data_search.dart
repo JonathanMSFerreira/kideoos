@@ -1,14 +1,18 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:kideoos/screens/parents.dart';
+
 
 
 class DataSearch extends SearchDelegate<String> {
 
 
+
+
   @override
   ThemeData appBarTheme(BuildContext context) {
+
     assert(context != null);
     final ThemeData theme = Theme.of(context);
     assert(theme != null);
@@ -17,9 +21,11 @@ class DataSearch extends SearchDelegate<String> {
       primaryIconTheme: theme.primaryIconTheme.copyWith(color: Colors.white),
       primaryColorBrightness: Brightness.light,
       primaryTextTheme: theme.textTheme,textTheme: theme.textTheme.copyWith(
-        title: theme.textTheme.title
-            .copyWith(color: Colors.white)),
-      dialogBackgroundColor: Colors.white
+        title: theme.textTheme.title.copyWith(color: Colors.white,
+        )),
+      dialogBackgroundColor: Colors.white,
+      hintColor: Colors.white,
+      
      );
   }
 
@@ -44,7 +50,13 @@ class DataSearch extends SearchDelegate<String> {
         color: Colors.white,
       ),
       onPressed: (){
-        close(context, null);
+     //   close(context, null);
+
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => Parents()));
+
+
+
       },
     );
   }
@@ -59,8 +71,24 @@ class DataSearch extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
+   
+   
     if(query.isEmpty)
-      return Container();
+      return Center(
+
+        child: Column(
+
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+
+            Icon(Icons.search, size: 110.0, color: Colors.grey,),
+            Text("Nenhum resultado", style: TextStyle(color: Colors.grey, fontSize: 16.0),)
+
+
+          ],)
+
+        
+      );
     else
       return FutureBuilder<List>(
         future: suggestions(query),
@@ -105,4 +133,7 @@ class DataSearch extends SearchDelegate<String> {
 
   }
 
+
+
 }
+

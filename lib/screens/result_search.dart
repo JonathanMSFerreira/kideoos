@@ -1,5 +1,6 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
+import 'package:kideoos/blocs/favorite_bloc.dart';
 import 'package:kideoos/blocs/videos_bloc.dart';
 import 'package:kideoos/delegates/data_search.dart';
 import 'package:kideoos/screens/selected_videos.dart';
@@ -27,6 +28,7 @@ class _ResultSearchState extends State<ResultSearch> {
     final bloc = BlocProvider.of<VideosBloc>(context);
 
 
+    final fbloc = BlocProvider.of<FavoriteBloc>(context);
 
     final selectedVideos = SelectedVideos();
 
@@ -68,36 +70,16 @@ class _ResultSearchState extends State<ResultSearch> {
 
             children: <Widget>[
 
-
-
               _searching == false ?
 
-                 selectedVideos.build(context)
+                   selectedVideos.build(context)
 
               :
 
               _inSearch(bloc, context)
 
 
-
-            ],
-
-
-
-
-
-
-          )
-
-
-
-
-
-
-
-
-
-    );
+            ],));
 
   }
 
@@ -114,26 +96,25 @@ class _ResultSearchState extends State<ResultSearch> {
                 itemBuilder: (context, index){
                   if(index < snapshot.data.length){
 
-
-
                       _searching = false;
 
-
                     return VideoTile(snapshot.data[index]);
+
                   } else if (index > 1){
                     bloc.inSearch.add(null);
                     return Container(
                       height: 40,
                       width: 40,
                       alignment: Alignment.center,
-                      child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.lightBlue[500]),),
+                      child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.indigo),),
                     );
-                  }
+                  } else {
 
-                  else {
-                //    return  selectedVideos.build(context);
 
-                    return Container();
+                    return Container(
+
+
+                       );
                   }
                 },
                 itemCount: snapshot.data.length + 1,
@@ -141,6 +122,7 @@ class _ResultSearchState extends State<ResultSearch> {
             else
               return Container(
 
+                child: Icon(Icons.done, size: 30.0,),
 
 
 

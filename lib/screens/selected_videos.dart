@@ -8,44 +8,74 @@ import 'package:kideoos/api.dart';
 
 class SelectedVideos extends StatelessWidget {
 
+
+
   @override
   Widget build(BuildContext context) {
 
     final bloc = BlocProvider.of<FavoriteBloc>(context);
 
-    return StreamBuilder<Map<String, Video>>(
-                    stream: bloc.outFav,
-                    initialData: {},
-                    builder: (context, snapshot) {
-                      return CustomScrollView(
-                        shrinkWrap: true,
-                        slivers: <Widget>[
-                          SliverList(
-                            delegate: SliverChildListDelegate(
-                              snapshot.data.values.map((v) {
-                                return InkWell(
-                                    onTap: () {
-                                      FlutterYoutube.playYoutubeVideoById(
-                                          apiKey: API_KEY, videoId: v.id);
-                                    },
 
-                                    child: _itemVideo(bloc, v));
-                              }).toList(),
-                            ),
-                          )
-                        ],
-                      );
-                    });
+
+      return StreamBuilder<Map<String, Video>>(
+            stream: bloc.outFav,
+            initialData: {},
+            builder: (context, snapshot) {
+
+              if(bloc.isEmpty()){
+
+
+               return  Center(
+                 
+                 
+                 child: Column(
+
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: <Widget>[
+
+                     Icon(Icons.sentiment_dissatisfied, color: Colors.indigo, size: 100,),
+
+                     Text("Nenhum vídeo adicionado!", style: TextStyle(color: Colors.indigo,fontSize: 20.0, fontWeight: FontWeight.bold),)
+
+
+
+                   ],)
+                 
+               );
+
+
+              }else {
+                return CustomScrollView(
+                  shrinkWrap: true,
+                  slivers: <Widget>[
+                    SliverList(
+                      delegate: SliverChildListDelegate(
+                        snapshot.data.values.map((v) {
+                          return InkWell(
+                              onTap: () {
+                                FlutterYoutube.playYoutubeVideoById(
+                                    apiKey: API_KEY, videoId: v.id);
+                              },
+
+                              child: _itemVideo(bloc, v));
+                        }).toList(),
+                      ),
+                    )
+                  ],
+                );
+              }
+
+            });
+      
+
   }
 
 
   _itemVideo(bloc, v){
 
-
     return Dismissible(
         key: Key(DateTime.now().millisecondsSinceEpoch.toString()),
         background: Container(
-
           color: Colors.red,
           child: Align(
               alignment: Alignment(-0.9, 0.0),

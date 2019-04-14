@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:kideoos/animation/sprite_painter.dart';
 import 'package:kideoos/screens/parents.dart';
 import 'package:kideoos/utils/background_kideoos.dart';
@@ -50,6 +51,7 @@ class SpriteButtonState extends State<SpriteButton>
           backgroundKideoos.setBackKideoos(),
 
 
+
           Center(
 
 
@@ -66,7 +68,7 @@ class SpriteButtonState extends State<SpriteButton>
                 ),
 
 
-                  Text("Video player for kids",style: TextStyle(fontSize: 20, color: Colors.indigo, fontWeight: FontWeight.bold),),
+                  Text("Video player para crianças",style: TextStyle(fontSize: 20, color: Colors.indigo, fontWeight: FontWeight.bold),),
 
 
                 SizedBox(

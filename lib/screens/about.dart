@@ -36,7 +36,7 @@ class About extends StatelessWidget {
 
                 children: <Widget>[
 
-                  
+
 
                   Row(
 
@@ -44,10 +44,6 @@ class About extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-
-
-
-
 
                       Text(
                         "Versão:", style: TextStyle(fontWeight: FontWeight.bold),
