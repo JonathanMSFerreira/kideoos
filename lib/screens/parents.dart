@@ -18,7 +18,7 @@ class Parents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final bloc = BlocProvider.of<VideosBloc>(context);
+  //  final bloc = BlocProvider.of<VideosBloc>(context);
 
     final backgroundKideoos  =  BackgroundKideoos();
 
@@ -185,7 +185,7 @@ class Parents extends StatelessWidget {
                  mainAxisAlignment: MainAxisAlignment.center,
                  children: <Widget>[
                   Icon(
-                       Icons.close, color: Colors.white,
+                       Icons.close, color: Colors.white, size: 18,
 
 
                    ),
@@ -248,7 +248,7 @@ class Parents extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                      Icon(Icons.child_care, color: Colors.white,
+                      Icon(Icons.face, color: Colors.white,
                     ),
                     Text("Kids", style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold),)
                   ],

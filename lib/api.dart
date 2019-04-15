@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:kideoos/models/video.dart';
 import 'package:http/http.dart' as http;
 
-const API_KEY = "AIzaSyALTXUHuRsLn0RyOELPmGd9za5ncpizNCc"; // coloque sua própria API KEY!!!
+const API_KEY = "AIzaSyALTXUHuRsLn0RyOELPmGd9za5ncpizNCc";
 
 class Api {
 
@@ -51,7 +51,7 @@ class Api {
 
     } else {
 
-      throw Exception("Failed to load videos");
+      throw Exception("Falha aos carregar vídeos");
 
     }
 

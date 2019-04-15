@@ -28,12 +28,14 @@ class _KideoosState extends State<Kideoos> {
 
     final bloc = BlocProvider.of<FavoriteBloc>(context);
 
-    return SafeArea(
+    return  Scaffold(
 
-        bottom: false,
-        child: Scaffold(
+        body:  SafeArea(
 
-          body:   StreamBuilder<Map<String, Video>>(
+          bottom: false,
+
+
+          child:  StreamBuilder<Map<String, Video>>(
               stream: BlocProvider.of<FavoriteBloc>(context).outFav,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
@@ -67,15 +69,8 @@ class _KideoosState extends State<Kideoos> {
                   }
                 } else
                   return Container();
-              }),
-
-
-        )
-
-
-      );
-
-
+              })),
+    );
 
   }
 
@@ -113,12 +108,9 @@ class _KideoosState extends State<Kideoos> {
                 source: _idVideoSelecionado,
                 quality: YoutubeQuality.LOW,
                 aspectRatio: 11.0 / 8.7,
-           //     keepScreenOn: true,
+                keepScreenOn: true,
                 autoPlay: true,
                 onVideoEnded: (){
-
-
-                  print(_idVideoSelecionado);
 
                   _reproducaoAutomatica(bloc);
 

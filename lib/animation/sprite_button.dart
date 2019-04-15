@@ -68,7 +68,7 @@ class SpriteButtonState extends State<SpriteButton>
                 ),
 
 
-                  Text("Video player para crianças",style: TextStyle(fontSize: 20, color: Colors.indigo, fontWeight: FontWeight.bold),),
+                  Text("Vídeo player para crianças",style: TextStyle(fontSize: 20, color: Colors.indigo, fontWeight: FontWeight.bold),),
 
 
                 SizedBox(
@@ -97,19 +97,7 @@ class SpriteButtonState extends State<SpriteButton>
                       },
                     ),
                   ),
-                ),
-
-
-
-
-
-
-
-              ],
-
-
-
-            )
+                ),],)
 
 
 
