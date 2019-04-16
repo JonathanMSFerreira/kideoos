@@ -48,12 +48,13 @@ class _ResultSearchState extends State<ResultSearch> {
         centerTitle: true,
         title:  Image.asset("images/kideoos.png", height: 200,),
 
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.blueAccent,
         actions: <Widget>[
 
           IconButton(
             icon: Icon(Icons.search, color: Colors.white,),
             onPressed: () {
+
 
                 _searching = true;
 
@@ -106,7 +107,7 @@ class _ResultSearchState extends State<ResultSearch> {
                       height: 40,
                       width: 40,
                       alignment: Alignment.center,
-                      child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.indigo),),
+                      child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.blueAccent),),
                     );
                   } else {
 

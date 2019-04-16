@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class BackgroundKideoos  {
 
 
-  Widget setBackKideoos() {
+  Widget setBackKideoos(int ri, int gi, int bi, int ai, int rf, int gf, int bf, int af ) {
 
     return   Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 255, 255, 1),
-            Color.fromARGB(135, 245, 230, 1),
+            Color.fromARGB(ri, gi, bi, ai),
+            Color.fromARGB(rf, gf, bf, af),
           ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
     );
   }

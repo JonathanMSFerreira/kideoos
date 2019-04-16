@@ -11,7 +11,7 @@ class Help extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
 
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.blueAccent,
         elevation: 1.0,
         centerTitle: true,
         title:  Image.asset("images/kideoos.png", height: 200,),
@@ -20,7 +20,7 @@ class Help extends StatelessWidget {
 
       body: Stack(
         children: <Widget>[
-          backgroundKideoos.setBackKideoos(),
+          backgroundKideoos.setBackKideoos(255,190,255,1,155,255,255,1),
 
 
           Card(

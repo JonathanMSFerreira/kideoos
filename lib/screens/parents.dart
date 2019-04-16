@@ -24,33 +24,40 @@ class Parents extends StatelessWidget {
 
     return Scaffold(
 
+        appBar: AppBar(
+
+          backgroundColor: Colors.blueAccent
+          ,
+          elevation: 1.0,
+          centerTitle: true,
+          title:  Image.asset("images/kideoos.png", height: 200,),
+
+        ),
+
+
         body: SafeArea(
 
           bottom: false,
 
             child: Stack(children: <Widget>[
 
-            backgroundKideoos.setBackKideoos(),
+              backgroundKideoos.setBackKideoos(255,230,255,1,155,255,255,1),
 
-
-              ClipPath(
-               // clipper: WaveClipperOne(),
-
-                clipper: WaveClipperTwo(),
-                child: Container(
-
-                  height: 110,
-                  color: Colors.indigo,
-                  child: Align(
-                      alignment: Alignment.topLeft,
-
-                       child: Image.asset("images/kideoos.png", height: 70,),
-                      ),
-                ),
-              ),
+//              ClipPath(
+//                clipper: WaveClipperOne(),
+//                clipper: WaveClipperTwo(),
+//                child: Container(
+//                  height: 110,
+//                  color: Colors.indigo,
+//                  child: Align(
+//                      alignment: Alignment.topLeft,
+//                       child: Image.asset("images/kideoos.png", height: 70,),
+//                      ),
+//                ),
+//              ),
 
             Padding(
-                padding: const EdgeInsets.only(top: 100.0),
+                padding: const EdgeInsets.only(top: 40.0),
                 child: new StaggeredGridView.count(
                   crossAxisCount: 5,
                   mainAxisSpacing: 1.0,
@@ -72,10 +79,10 @@ class Parents extends StatelessWidget {
 
 
       const StaggeredTile.count(5, 3),
-      const StaggeredTile.count(3, 2),
-   //   const StaggeredTile.count(2, 1),
       const StaggeredTile.count(2, 2),
-      const StaggeredTile.count(5, 1),
+   // const StaggeredTile.count(2, 1),
+      const StaggeredTile.count(2, 2),
+      const StaggeredTile.count(2, 1),
 
 
    ];

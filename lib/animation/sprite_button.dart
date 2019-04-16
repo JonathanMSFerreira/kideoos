@@ -48,7 +48,7 @@ class SpriteButtonState extends State<SpriteButton>
 
          children: <Widget>[
 
-          backgroundKideoos.setBackKideoos(),
+           backgroundKideoos.setBackKideoos(255,190,255,1,155,255,255,1),
 
 
 
@@ -63,12 +63,12 @@ class SpriteButtonState extends State<SpriteButton>
              //   Text("Kideoos", style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.blue[700]),),
                 Image.asset(
                   "images/kideoos.png",
-                  height: 80.0,
+                  height: 110.0,
 
                 ),
 
 
-                  Text("Vídeo player para crianças",style: TextStyle(fontSize: 20, color: Colors.indigo, fontWeight: FontWeight.bold),),
+                  Text("Vídeo player para crianças",style: TextStyle(fontSize: 20, color: Colors.indigoAccent, fontWeight: FontWeight.bold),),
 
 
                 SizedBox(

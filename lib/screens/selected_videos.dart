@@ -4,6 +4,7 @@ import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:kideoos/blocs/favorite_bloc.dart';
 import 'package:kideoos/models/video.dart';
 import 'package:kideoos/api.dart';
+import 'package:kideoos/utils/background_kideoos.dart';
 
 
 class SelectedVideos extends StatelessWidget {
@@ -14,7 +15,7 @@ class SelectedVideos extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final bloc = BlocProvider.of<FavoriteBloc>(context);
-
+    final backgroundKideoos  =  BackgroundKideoos();
 
 
       return StreamBuilder<Map<String, Video>>(
@@ -25,7 +26,17 @@ class SelectedVideos extends StatelessWidget {
               if(bloc.isEmpty()){
 
 
-               return  Center(
+               return
+
+
+                 Stack(
+
+                     children: <Widget>[
+
+                     backgroundKideoos.setBackKideoos(255,190,255,1,155,255,255,1),
+
+
+                 Center(
                  
                  
                  child: Column(
@@ -33,15 +44,15 @@ class SelectedVideos extends StatelessWidget {
                    mainAxisAlignment: MainAxisAlignment.center,
                    children: <Widget>[
 
-                     Icon(Icons.sentiment_dissatisfied, color: Colors.indigo, size: 100,),
+                     Icon(Icons.sentiment_dissatisfied, color: Colors.blueAccent, size: 100,),
 
-                     Text("Nenhum vídeo adicionado!", style: TextStyle(color: Colors.indigo,fontSize: 20.0, fontWeight: FontWeight.bold),)
+                     Text("Nenhum vídeo adicionado!", style: TextStyle(color: Colors.blueAccent,fontSize: 20.0, fontWeight: FontWeight.bold),)
 
 
 
                    ],)
                  
-               );
+                 )]) ;
 
 
               }else {
